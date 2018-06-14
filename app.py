@@ -19,7 +19,7 @@ def stock_plot(symbol='GOOG',yr=2017,mo=11,day=22,plt_thing = 'close'):
 #    print dates[0:]
     things = ','.join(['ticker','date','close','open','high','low'])
     
-    r = requests.get('http://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker='+symbol+'&date='+dates+'&qopts.columns='+things+'&api_key='+str(QUANDL_Key))
+    r = requests.get('http://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker='+symbol+'&date='+dates+'&qopts.columns='+things+'&api_key='+str(QUANDL_Key['QUANDL_KEY']))
     
     names = [x['name'] for x in r.json()['datatable']['columns']]
     df = pandas.DataFrame(r.json()['datatable']['data'], columns = names)
