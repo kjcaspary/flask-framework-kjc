@@ -7,3 +7,5 @@ pip
 simplejson
 requests
 gunicorn
+boto
+
