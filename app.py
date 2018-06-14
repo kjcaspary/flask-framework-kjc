@@ -5,11 +5,11 @@ import pandas
 from flask import Flask, render_template, request
 from boto.s3.connection import S3Connection
 import os
-QUANDL_key = S3Connection(os.environ['QUANDL_KEY'])
 
 app = Flask(__name__)
 
 def stock_plot(symbol='GOOG',yr=2017,mo=11,day=22,plt_thing = 'close'):
+    QUANDL_key = S3Connection(os.environ['QUANDL_KEY'])
 
 #    symbols = ['GOOG']
 #    symbol = symbols[0]
