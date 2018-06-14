@@ -59,7 +59,7 @@ def index():
         
     # Embed plot into HTML via Flask Render
     script, div = bokeh.embed.components(plot)
-    return bokeh.util.string.encode_utf8(render_template("stock-ticker.html", script=script, div=div,js_resources=js_resources,css_resources=css_resources,
+    return bokeh.util.string.encode_utf8(render_template("index.html", script=script, div=div,js_resources=js_resources,css_resources=css_resources,
                                          stockticker=sym, stdate=date, choice=plot_thing ))
 
 if __name__ == '__main__':
