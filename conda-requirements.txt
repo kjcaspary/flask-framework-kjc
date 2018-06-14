@@ -1,3 +1,4 @@
+os
 pandas
 bokeh
 dill
@@ -8,4 +9,4 @@ simplejson
 requests
 gunicorn
 boto
-os
+
