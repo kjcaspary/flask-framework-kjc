@@ -4,6 +4,7 @@ import bokeh
 import pandas
 from flask import Flask, render_template, request
 from boto.s3.connection import S3Connection
+import os
 QUANDL_key = S3Connection(os.environ['QUANDL_KEY'])
 
 app = Flask(__name__)

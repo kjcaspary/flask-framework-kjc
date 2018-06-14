@@ -8,3 +8,4 @@ simplejson
 requests
 gunicorn
 boto
+os
