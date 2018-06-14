@@ -3,13 +3,13 @@ import bokeh.plotting.figure
 import bokeh
 import pandas
 from flask import Flask, render_template, request
-from boto.s3.connection import S3Connection
+#from boto.s3.connection import S3Connection
 import os
 
 app = Flask(__name__)
+api = os.environ.get('QUANDL_KEY')
 
 def stock_plot(symbol='GOOG',yr=2017,mo=11,day=22,plt_thing = 'close'):
-    QUANDL_key = S3Connection(os.environ['QUANDL_KEY'])
 
 #    symbols = ['GOOG']
 #    symbol = symbols[0]
@@ -19,7 +19,7 @@ def stock_plot(symbol='GOOG',yr=2017,mo=11,day=22,plt_thing = 'close'):
 #    print dates[0:]
     things = ','.join(['ticker','date','close','open','high','low'])
     
-    r = requests.get('http://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker='+symbol+'&date='+dates+'&qopts.columns='+things+'&api_key='+str(QUANDL_Key['QUANDL_KEY']))
+    r = requests.get('http://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?ticker='+symbol+'&date='+dates+'&qopts.columns='+things+'&api_key='+api)
     
     names = [x['name'] for x in r.json()['datatable']['columns']]
     df = pandas.DataFrame(r.json()['datatable']['data'], columns = names)
