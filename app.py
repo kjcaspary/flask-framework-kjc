@@ -63,4 +63,4 @@ def index():
                                          stockticker=sym, stdate=date, choice=plot_thing ))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=33507)
